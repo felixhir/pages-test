@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Push to gh-pages
+name: Create Docs on main
 
 # Controls when the workflow will run
 on:
@@ -10,16 +10,12 @@ on:
   pull_request:
     branches: [ main ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build
+    - name: Build docs
       run: |
         cd ./emulator
         curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
@@ -27,12 +23,16 @@ jobs:
         cd ../emulator-webapp
         npm install
         npm run build-docs
-    - name: Commit files
+    - name: Commit docs
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add ./docs/*
-        git commit -m "Create new Docs" -a
+        if [ -z "$(git status --porcelain)" ]; then 
+          # skip
+        else 
+          git add ./docs/*
+          git commit -m "Create new Docs" -a
+        fi
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
