@@ -26,7 +26,7 @@ jobs:
         wasm-pack build -t web
         cd ../emulator-webapp
         npm install
-        npm run build
+        npm run build-ghp
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
