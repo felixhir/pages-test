@@ -24,6 +24,7 @@ jobs:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Create local changes
       run: |
+        cd ./emulator-webapp
         npm run build
     - name: Commit files
       run: |
