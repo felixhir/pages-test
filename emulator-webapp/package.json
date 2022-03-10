@@ -1,10 +1,12 @@
 {
   "name": "emulator-webapp",
   "version": "0.0.0",
+  "homepage": "https://felixhir.github.io/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-ghp": "ng build --output-path docs --base-href /pages-test/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -34,6 +36,7 @@
     "@angular/compiler-cli": "~13.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "angular-cli-ghpages": "^1.0.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
