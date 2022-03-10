@@ -20,8 +20,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      working-directory: ./emulator-webapp
       run: |
+        ls
         npm run build
     - name: Commit files
       run: |
