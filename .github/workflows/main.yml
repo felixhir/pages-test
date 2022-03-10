@@ -22,6 +22,7 @@ jobs:
     - name: Build
       run: |
         cd ./emulator-webapp
+        npm install
         npm run build
     - name: Commit files
       run: |
