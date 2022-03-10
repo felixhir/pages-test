@@ -1,7 +1,6 @@
 {
   "name": "emulator-webapp",
   "version": "0.0.0",
-  "homepage": "https://felixhir.github.io/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
