@@ -22,6 +22,7 @@ jobs:
     - name: Build
       run: |
         cd ./emulator
+        curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
         wasm-pack build -t web
         cd ../emulator-webapp
         npm install
