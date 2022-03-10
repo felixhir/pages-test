@@ -21,7 +21,9 @@ jobs:
     - uses: actions/checkout@v2
     - name: Build
       run: |
-        cd ./emulator-webapp
+        cd ./emulator
+        wasm-pack build -t web
+        cd ../emulator-webapp
         npm install
         npm run build
     - name: Commit files
