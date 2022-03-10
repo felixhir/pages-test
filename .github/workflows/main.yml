@@ -26,12 +26,12 @@ jobs:
         wasm-pack build -t web
         cd ../emulator-webapp
         npm install
-        npm run build-ghp
+        npm run build-docs
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add *
+        git add ./docs/*
         git commit -m "Create new Docs" -a
     - name: Push changes
       uses: ad-m/github-push-action@master
